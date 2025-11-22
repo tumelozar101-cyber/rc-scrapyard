@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>RC Scrapyard – Online Parts Finder (Prototype)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header" id="home">
+    <nav class="nav">
+        <div class="nav-left">
+            <div class="logo">
+                <span class="logo-main">RC Scrapyard</span>
+                <span class="logo-sub">Used Auto Parts & Spares</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="#home">Home</a>
+            <a href="#browse">Browse Parts</a>
+            <a href="#sell">Sell Your Car</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">For RC Scrapyard</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <p class="hero-tag">Prototype for RC Scrapyard</p>
+                <h1>Online Parts Finder for RC Scrapyard.</h1>
+                <p>
+                    Customers search by make, model, or part name and send a quick enquiry.
+                    This is a <strong>demo layout</strong> – every section and colour can be adjusted to your preferences.
+                </p>
+                <div class="hero-actions">
+                    <a href="#browse" class="btn btn-primary">Browse Parts (Demo)</a>
+                    <a href="#sell" class="btn btn-outline">Sell Your Car</a>
+                </div>
+                <p class="hero-note">
+                    *This is not a live system yet – it’s a proof of concept to review together and customise for RC Scrapyard.*
+                </p>
+            </div>
+
+            <!-- Hero photo placeholder -->
+            <div class="hero-media">
+                <div class="hero-photo-placeholder">
+                    <span>
+                        RC Scrapyard / Family / Yard Photo<br />
+                        <small>(Placeholder – can be replaced with a real image)</small>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+
+<main>
+    <!-- Browse / Search Section -->
+    <section class="section" id="browse">
+        <div class="section-header">
+            <h2>Browse Parts</h2>
+            <p>This shows how customers could search RC Scrapyard stock online.</p>
+        </div>
+
+        <!-- Mock search form (UI only) -->
+        <form class="search-form" onsubmit="event.preventDefault();">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="make">Make</label>
+                    <select id="make">
+                        <option value="">Any</option>
+                        <option>Toyota</option>
+                        <option>VW</option>
+                        <option>BMW</option>
+                        <option>Ford</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="model">Model</label>
+                    <select id="model">
+                        <option value="">Any</option>
+                        <option>Corolla</option>
+                        <option>Polo</option>
+                        <option>3 Series</option>
+                        <option>Fiesta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category">Part category</label>
+                    <select id="category">
+                        <option value="">Any</option>
+                        <option>Body</option>
+                        <option>Engine</option>
+                        <option>Suspension</option>
+                        <option>Lights</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="keyword">Keyword</label>
+                    <input type="text" id="keyword" placeholder="e.g. front bumper, headlight" />
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Search (Demo Only)</button>
+        </form>
+
+        <!-- Mock results: sample parts -->
+        <div class="cards-grid">
+            <article class="part-card">
+                <div class="badge badge-available">Available</div>
+
+                <!-- Part image placeholder -->
+                <div class="part-photo-placeholder">
+                    <span>Part Photo<br /><small>(e.g. front bumper)</small></span>
+                </div>
+
+                <h3>Front Bumper</h3>
+                <p class="part-vehicle">Toyota Corolla · 2013</p>
+                <p class="part-condition">Condition: Used – minor scratch</p>
+                <p class="part-location">Location: Bay A3</p>
+                <p class="part-price">R1,800</p>
+                <button class="btn btn-small" onclick="scrollToContact('Front Bumper - Toyota Corolla 2013')">
+                    View / Enquire
+                </button>
+            </article>
+
+            <article class="part-card">
+                <div class="badge badge-available">Available</div>
+
+                <div class="part-photo-placeholder">
+                    <span>Part Photo<br /><small>(e.g. left headlight)</small></span>
+                </div>
+
+                <h3>Left Headlight</h3>
+                <p class="part-vehicle">VW Polo · 2016</p>
+                <p class="part-condition">Condition: Very good</p>
+                <p class="part-location">Location: Shelf B2</p>
+                <p class="part-price">R950</p>
+                <button class="btn btn-small" onclick="scrollToContact('Left Headlight - VW Polo 2016')">
+                    View / Enquire
+                </button>
+            </article>
+
+            <article class="part-card">
+                <div class="badge badge-limited">Low stock</div>
+
+                <div class="part-photo-placeholder">
+                    <span>Part Photo<br /><small>(e.g. alternator)</small></span>
+                </div>
+
+                <h3>Alternator</h3>
+                <p class="part-vehicle">BMW 320i · 2012</p>
+                <p class="part-condition">Condition: Tested, working</p>
+                <p class="part-location">Location: Engine Rack C1</p>
+                <p class="part-price">R2,900</p>
+                <button class="btn btn-small" onclick="scrollToContact('Alternator - BMW 320i 2012')">
+                    View / Enquire
+                </button>
+            </article>
+
+            <article class="part-card">
+                <div class="badge badge-unavailable">Sold</div>
+
+                <div class="part-photo-placeholder">
+                    <span>Part Photo<br /><small>(e.g. rear door)</small></span>
+                </div>
+
+                <h3>Right Rear Door</h3>
+                <p class="part-vehicle">Ford Fiesta · 2015</p>
+                <p class="part-condition">Condition: Fair – small dent</p>
+                <p class="part-location">Location: Yard (Booked)</p>
+                <p class="part-price">R1,200</p>
+                <button class="btn btn-small" disabled>
+                    No longer available
+                </button>
+            </article>
+        </div>
+    </section>
+
+    <!-- Sell Your Car Section -->
+    <section class="section" id="sell">
+        <div class="section-header">
+            <h2>Sell Your Car to RC Scrapyard</h2>
+            <p>Customers can send details and upload photos of damaged or used vehicles they want to sell.</p>
+        </div>
+
+        <div class="sell-layout">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo only – files are not uploaded in this prototype.');">
+                <div class="form-group">
+                    <label for="seller-name">Full name</label>
+                    <input type="text" id="seller-name" placeholder="Your full name" />
+                </div>
+                <div class="form-group">
+                    <label for="seller-email">Email</label>
+                    <input type="email" id="seller-email" placeholder="example@email.com" />
+                </div>
+                <div class="form-group">
+                    <label for="seller-phone">Phone / WhatsApp</label>
+                    <input type="tel" id="seller-phone" placeholder="+27..." />
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="seller-vehicle">Vehicle make & model</label>
+                        <input type="text" id="seller-vehicle" placeholder="e.g. Toyota Corolla 1.6" />
+                    </div>
+                    <div class="form-group">
+                        <label for="seller-year">Year</label>
+                        <input type="text" id="seller-year" placeholder="e.g. 2013" />
+                    </div>
+                    <div class="form-group">
+                        <label for="seller-running">Running condition</label>
+                        <select id="seller-running">
+                            <option value="">Select</option>
+                            <option>Still running</option>
+                            <option>Non-runner</option>
+                            <option>Accident damaged</option>
+                            <option>Stripped / incomplete</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="seller-location">Vehicle location</label>
+                        <input type="text" id="seller-location" placeholder="Town / suburb" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="car-photos">Upload photos of the vehicle</label>
+                    <input type="file" id="car-photos" multiple />
+                    <p class="file-input-note">
+                        You can upload multiple photos (front, back, sides, interior, and damage areas).
+                        This is a demo – files are not stored yet.
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <label for="seller-notes">Extra details</label>
+                    <textarea id="seller-notes" rows="4" placeholder="Current condition, major damage, missing parts, licence status, etc."></textarea>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Send Car Details (Demo)</button>
+                <p class="form-note">
+                    *In the final system, these details and photos will be sent directly to RC Scrapyard and stored for follow-up.*
+                </p>
+            </form>
+
+            <aside class="sell-info">
+                <h3>How RC Scrapyard Can Use This</h3>
+                <p>
+                    This section is designed for people who want to sell used, non-running or accident-damaged vehicles.
+                    Photos and basic details help RC Scrapyard decide quickly if they’re interested.
+                </p>
+                <ul>
+                    <li>Receive clear info: make, model, year, location and condition.</li>
+                    <li>View photos before committing to a call-out.</li>
+                    <li>Keep a record of offers and vehicles viewed.</li>
+                </ul>
+                <p class="sell-note">
+                    We can customise this process – for example, sending details straight to a WhatsApp number,
+                    an email inbox, or into a simple internal dashboard.
+                </p>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Contact / Request Section -->
+    <section class="section section-alt" id="contact">
+        <div class="section-header">
+            <h2>Contact / Part Request</h2>
+            <p>This is how customers could send RC Scrapyard a quick request.</p>
+        </div>
+
+        <div class="contact-layout">
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Demo only – no message sent.');">
+                <div class="form-group">
+                    <label for="customer-name">Full name</label>
+                    <input type="text" id="customer-name" placeholder="John Dlamini" />
+                </div>
+                <div class="form-group">
+                    <label for="customer-email">Email</label>
+                    <input type="email" id="customer-email" placeholder="example@email.com" />
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Phone / WhatsApp</label>
+                    <input type="tel" id="customer-phone" placeholder="+27..." />
+                </div>
+                <div class="form-group">
+                    <label for="part-details">Part details (optional – if enquiring about a listed part)</label>
+                    <input type="text" id="part-details" placeholder="e.g. Front bumper - Toyota Corolla 2013" />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Tell us what you need (make, model, year, part name)."></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit">Send Request (Demo)</button>
+                <p class="form-note">
+                    *In the final system this will send straight to RC Scrapyard via email/WhatsApp and save into a request log.*
+                </p>
+            </form>
+
+            <aside class="contact-info">
+                <h3>RC Scrapyard – Yard Details</h3>
+                <p><strong>Address:</strong><br>
+                    (Sample) 123 Industrial Street,<br>
+                    Industrial Area, City, Province
+                </p>
+                <p><strong>Phone:</strong><br>
+                    012 345 6789
+                </p>
+                <p><strong>WhatsApp:</strong><br>
+                    071 234 5678
+                </p>
+                <p><strong>Opening hours:</strong><br>
+                    Mon–Fri: 08:00 – 17:00<br>
+                    Sat: 08:00 – 13:00<br>
+                    Sun & Public Holidays: Closed
+                </p>
+                <p class="contact-note">
+                    All of this is placeholder information. We’ll replace it with RC Scrapyard’s real details.
+                </p>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Family / Team Section -->
+    <section class="section" id="team">
+        <div class="section-header">
+            <h2>Family Business. Real People.</h2>
+            <p>Space to showcase the RC Scrapyard family, staff and the yard itself.</p>
+        </div>
+
+        <div class="team-grid">
+            <article class="team-card">
+                <div class="photo-placeholder">
+                    <span>
+                        Family Photo Placeholder<br />
+                        <small>(Owners / founding family)</small>
+                    </span>
+                </div>
+                <h3>The RC Scrapyard Family</h3>
+                <p>
+                    This space can introduce the family behind RC Scrapyard, how the
+                    business started, and what makes it different from other yards.
+                </p>
+            </article>
+
+            <article class="team-card">
+                <div class="photo-placeholder">
+                    <span>
+                        Staff Photo Placeholder<br />
+                        <small>(Team / front office / yard crew)</small>
+                    </span>
+                </div>
+                <h3>The Team</h3>
+                <p>
+                    A short story about the staff – the people who help customers find
+                    the right part, remove it from vehicles, and prepare orders.
+                </p>
+            </article>
+
+            <article class="team-card">
+                <div class="photo-placeholder">
+                    <span>
+                        Yard / Vehicles Photo Placeholder<br />
+                        <small>(Cars, rows of parts, etc.)</small>
+                    </span>
+                </div>
+                <h3>The Yard</h3>
+                <p>
+                    A visual look at the yard – rows of cars, storage areas and parts.
+                    This helps customers trust that RC Scrapyard is organised and established.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- About / For RC Scrapyard Section -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2>How This Can Work for RC Scrapyard</h2>
+            <p>This page is a starting point. From here we can build a full system around how you run the yard.</p>
+        </div>
+        <div class="about-text">
+            <p>
+                The goal is simple: make it easier for customers to find the parts they need,
+                and make it easier for RC Scrapyard to handle enquiries and manage stock.
+            </p>
+            <p>
+                We can build this in phases, for example:
+            </p>
+            <ul>
+                <li><strong>Phase 1 – Online Enquiries:</strong> Customers search parts and send requests to RC Scrapyard.</li>
+                <li><strong>Phase 2 – Stock Management:</strong> Private login for staff to add vehicles and parts, mark items as sold or reserved.</li>
+                <li><strong>Phase 3 – Extras:</strong> Images of parts, automatic WhatsApp/email replies, exportable reports of requests, etc.</li>
+            </ul>
+            <p>
+                Every colour, button and section here can be changed. This is simply a
+                <strong>prototype</strong> so you can see how RC Scrapyard could look and work online before we commit to final features.
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>© <span id="year"></span> RC Scrapyard · Prototype website for discussion only.</p>
+</footer>
+
+<script>
+    // Fill current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // When user clicks "View / Enquire", pre-fill the part details & scroll to contact
+    function scrollToContact(partDescription) {
+        const input = document.getElementById('part-details');
+        if (input) {
+            input.value = partDescription;
+        }
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>
