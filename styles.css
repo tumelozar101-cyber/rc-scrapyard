@@ -15,6 +15,16 @@ body {
     background-color: #f3f4f6; /* light grey overall */
 }
 
+/* Headings: use bold display font */
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Bebas Neue", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
 /* HEADER / NAV */
 
 .site-header {
