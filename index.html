@@ -428,37 +428,40 @@
 
     <div class="contact-grid">
       <form id="quoteForm" class="card form">
-        <div class="form-row">
-          <label>
-            Full Name
-            <input type="text" name="name" placeholder="Your name" required>
-          </label>
+  <div class="form-row">
+    <label>
+      Full Name
+      <input id="fullname" type="text" name="name" placeholder="Your name" required>
+    </label>
 
-          <label>
-            Phone Number
-            <input type="tel" name="phone" placeholder="e.g. 074 745 1136" required>
-          </label>
-        </div>
+    <label>
+      Phone Number
+      <input id="phone" type="tel" name="phone" placeholder="e.g. 074 745 1136" required>
+    </label>
+  </div>
 
-        <label>
-          What do you need help with?
-          <select name="service" required>
-            <option value="">Select an option</option>
-            <option>Selling your car</option>
-            <option>Buying a car</option>
-            <option>Used/New part request</option>
-            <option>Other</option>
-          </select>
-        </label>
+  <label>
+    What do you need help with?
+    <select id="service" name="service" required>
+      <option value="">Select an option</option>
+      <option>Selling your car</option>
+      <option>Buying a car</option>
+      <option>Used/New part request</option>
+      <option>Other</option>
+    </select>
+  </label>
 
-        <label>
-          Message
-          <textarea name="message" rows="5" placeholder="Add details like vehicle make/model/year, part name, and any notes." required></textarea>
-        </label>
+  <label>
+    Message
+    <textarea id="message" name="message" rows="5"
+      placeholder="Add details like vehicle make/model/year, part name, and any notes."
+      required></textarea>
+  </label>
 
-        <button class="btn primary" type="submit">Send on WhatsApp</button>
-        <p class="muted small">When you click, WhatsApp opens, you review the message and press Send.</p>
-      </form>
+  <button class="btn primary" type="submit">Send on WhatsApp</button>
+  <p class="muted small">When you click, WhatsApp opens, you review the message and press Send.</p>
+</form>
+
 
       <div class="card contact-card">
         <h3>Contact Details</h3>

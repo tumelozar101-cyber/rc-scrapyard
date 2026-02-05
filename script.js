@@ -135,4 +135,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.querySelectorAll("[data-carousel]").forEach(initCarousel);
+  
+    // ----------------------------
+// WhatsApp Quote Form
+// ----------------------------
+const quoteForm = document.getElementById("quoteForm");
+
+if (quoteForm) {
+  quoteForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const fd = new FormData(quoteForm);
+
+    const name = (fd.get("name") || "").toString().trim();
+    const phone = (fd.get("phone") || "").toString().trim();
+    const service = (fd.get("service") || "").toString().trim();
+    const message = (fd.get("message") || "").toString().trim();
+
+    // Build plain text (NO %0A here)
+    const text = [
+      "Hi RC Scrapyard,",
+      "",
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Service: ${service}`,
+      "",
+      `Message: ${message}`
+    ]
+      .join("\n")
+      // Normalize Windows newlines just in case (removes the weird �)
+      .replace(/\r\n/g, "\n")
+      .replace(/\r/g, "\n");
+
+    const whatsappNumber = "27747451136"; // no +, no spaces
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+    window.open(url, "_blank", "noopener");
+  });
+}
+
 });
